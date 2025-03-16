@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
 import { ProfileScreenProps } from '../types';
@@ -8,7 +9,8 @@ const ProfileScreen = ({ navigation }: ProfileScreenProps) => {
   const { t } = useTranslation();
 
   return (
-    <ScrollView style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <ScrollView>
       {/* Profile Header */}
       <View style={styles.profileHeader}>
         <Image 
@@ -45,7 +47,8 @@ const ProfileScreen = ({ navigation }: ProfileScreenProps) => {
         <Text style={styles.settingsButtonText}>设置</Text>
         <MaterialIcons name="chevron-right" size={24} color="#666" />
       </TouchableOpacity>
-    </ScrollView>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
@@ -53,6 +56,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f5f6fa',
+    paddingTop: 0,
   },
   profileHeader: {
     flexDirection: 'row',

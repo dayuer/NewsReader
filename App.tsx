@@ -66,7 +66,7 @@ export default function App() {
         <Tab.Screen
           name="ProfileTab"
           component={ProfileStack}
-          options={{ title: '我的' }}
+          options={{ title: '我的', headerShown: false }}
         />
       </Tab.Navigator>
       <StatusBar style="auto" />
