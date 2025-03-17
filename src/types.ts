@@ -15,6 +15,10 @@ export type RootStackParamList = {
     }
   };
   Settings: undefined;
+  ForgotPassword: undefined;
+  Register: undefined;
+  Login: undefined;
+  Main: undefined;
 };
 
 export type BottomTabParamList = {
