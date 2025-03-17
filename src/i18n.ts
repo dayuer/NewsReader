@@ -13,7 +13,9 @@ const resources = {
       english: 'English',
       newsTitle: 'News',
       newsContent: 'This is news content',
-      changeLanguage: 'Change Language'
+      changeLanguage: 'Change Language',
+      settingsButton: 'Settings',
+      share: 'Share'
     }
   },
   zh: {
@@ -25,7 +27,9 @@ const resources = {
       english: '英文',
       newsTitle: '新闻',
       newsContent: '这是新闻内容',
-      changeLanguage: '切换语言'
+      changeLanguage: '切换语言',
+      settingsButton: '设置',
+      share: '分享'
     }
   }
 };

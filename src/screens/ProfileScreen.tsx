@@ -44,7 +44,7 @@ const ProfileScreen = ({ navigation }: ProfileScreenProps) => {
         style={styles.settingsButton}
         onPress={() => navigation.navigate('Settings')}
       >
-        <Text style={styles.settingsButtonText}>设置</Text>
+        <Text style={styles.settingsButtonText}>{t('settingsButton')}</Text>
         <MaterialIcons name="chevron-right" size={24} color="#666" />
       </TouchableOpacity>
       </ScrollView>
