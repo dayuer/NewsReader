@@ -4,7 +4,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 
 export type RootStackParamList = {
   Home: undefined;
-  NewsDetail: { 
+  NewsDetail: {
     news: {
       id: string;
       title: string;
@@ -12,6 +12,15 @@ export type RootStackParamList = {
       source: string;
       timestamp: string;
       summary: string;
+      content: string;
+      author: string;
+      category: string;
+      tags: string[];
+      viewCount: number;
+      likeCount: number;
+      commentCount: number;
+      isFeatured: boolean;
+      isBreaking: boolean;
     }
   };
   Settings: undefined;

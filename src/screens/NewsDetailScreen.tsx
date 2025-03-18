@@ -1,11 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity, ActivityIndicator, StatusBar, Share } from 'react-native';
 import Toast from 'react-native-toast-message';
-import { MaterialIcons, Ionicons, FontAwesome } from '@expo/vector-icons';
+import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { useTheme } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
-import axios from 'axios';
-import * as cheerio from 'cheerio';
 
 export interface NewsDetailScreenRouteProp {
   params: {
@@ -16,6 +14,15 @@ export interface NewsDetailScreenRouteProp {
       source: string;
       timestamp: string;
       summary: string;
+      content: string;
+      author: string;
+      category: string;
+      tags: string[];
+      viewCount: number;
+      likeCount: number;
+      commentCount: number;
+      isFeatured: boolean;
+      isBreaking: boolean;
     };
   };
 }
@@ -51,70 +58,10 @@ const NewsDetailScreen = ({ route, navigation }: Props) => {
   };
 
   const { colors } = useTheme();
-  const [isBookmarked, setIsBookmarked] = useState(false);
-const [isLoading, setIsLoading] = useState(true);
-
-  const handleBookmark = async () => {
-    try {
-      const newStatus = !isBookmarked;
-      setIsBookmarked(newStatus);
-      
-      // 调用API更新收藏状态
-      await axios.post('/api/bookmarks', {
-        newsId: news.id,
-        isBookmarked: newStatus
-      });
-      
-      // 显示收藏状态提示
-      Toast.show({
-        type: 'success',
-        text1: newStatus ? '已收藏' : '已取消收藏',
-        position: 'bottom'
-      });
-    } catch (error) {
-      console.error('收藏操作失败:', error);
-      Toast.show({
-        type: 'error',
-        text1: '操作失败，请重试',
-        position: 'bottom'
-      });
-      // 回滚状态
-      setIsBookmarked(isBookmarked);
-    }
-  };
+  const [isLoading, setIsLoading] = useState(true);
 
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
-      {/* 顶部导航栏 */}
-      <View style={styles.header}>
-        <TouchableOpacity
-          style={styles.backButton}
-          onPress={() => navigation.goBack()}
-        >
-          <Ionicons name="arrow-back" size={24} color={colors.text} />
-        </TouchableOpacity>
-        
-        <View style={styles.headerActions}>
-          <TouchableOpacity
-            style={styles.actionButton}
-            onPress={handleBookmark}
-          >
-            <Ionicons 
-              name={isBookmarked ? "bookmark" : "bookmark-outline"} 
-              size={24} 
-              color={colors.text} 
-            />
-          </TouchableOpacity>
-          
-          <TouchableOpacity
-            style={styles.actionButton}
-            onPress={() => {}}
-          >
-            <Ionicons name="ellipsis-horizontal" size={24} color={colors.text} />
-          </TouchableOpacity>
-        </View>
-      </View>
-
       <ScrollView style={styles.scrollContainer} contentContainerStyle={styles.scrollContent}>
         <View>
           {/* 大图 */}
@@ -144,39 +91,57 @@ const [isLoading, setIsLoading] = useState(true);
             <View style={styles.metaContainer}>
               <Text style={styles.source}>{news.source}</Text>
               <Text style={styles.timestamp}>{news.timestamp}</Text>
+              {news.isBreaking && (
+                <View style={styles.breakingBadge}>
+                  <Text style={styles.breakingText}>紧急</Text>
+                </View>
+              )}
             </View>
+
+            {/* 作者信息 */}
+            <View style={styles.authorContainer}>
+              <Text style={styles.authorText}>作者：{news.author}</Text>
+            </View>
+
+            {/* 分类和标签 */}
+            <View style={styles.categoryContainer}>
+              <Text style={styles.categoryText}>分类：{news.category}</Text>
+            </View>
+            {news.tags.length > 0 && (
+              <View style={styles.tagsContainer}>
+                {news.tags.map((tag, index) => (
+                  <View key={index} style={styles.tag}>
+                    <Text style={styles.tagText}>#{tag}</Text>
+                  </View>
+                ))}
+              </View>
+            )}
 
             {/* 摘要 */}
             <Text style={styles.summary}>{news.summary}</Text>
+
+            {/* 统计数据 */}
+            <View style={styles.statsContainer}>
+              <View style={styles.statItem}>
+                <Ionicons name="eye-outline" size={16} color="#666" />
+                <Text style={styles.statText}>{news.viewCount}</Text>
+              </View>
+              <View style={styles.statItem}>
+                <Ionicons name="thumbs-up-outline" size={16} color="#666" />
+                <Text style={styles.statText}>{news.likeCount}</Text>
+              </View>
+              <View style={styles.statItem}>
+                <Ionicons name="chatbubble-outline" size={16} color="#666" />
+                <Text style={styles.statText}>{news.commentCount}</Text>
+              </View>
+            </View>
 
             {/* 分隔线 */}
             <View style={styles.divider} />
 
             {/* 完整内容 */}
             <Text style={styles.fullContent}>
-              近日，人工智能领域迎来重大突破。OpenAI发布了最新一代语言模型GPT-5，该模型在自然语言处理、代码生成和创意写作等方面展现出前所未有的能力。
-              {'\n\n'}
-              据OpenAI首席科学家Ilya Sutskever介绍，GPT-5在多个基准测试中表现优异，特别是在理解复杂指令和生成高质量内容方面有了显著提升。该模型采用了全新的架构设计，能够更好地处理长文本和上下文信息。
-              {'\n\n'}
-              <Text style={styles.quote}>
-                "GPT-5的发布标志着人工智能技术进入了一个新的时代。"
-              </Text>
-              {'\n\n'}
-              在应用方面，GPT-5已经在多个领域展现出巨大潜力：
-              {'\n\n'}
-              • 教育：辅助教学，提供个性化学习方案
-              {'\n\n'}
-              • 医疗：辅助诊断，提供治疗方案建议
-              {'\n\n'}
-              • 创意：协助写作、绘画等创意工作
-              {'\n\n'}
-              • 编程：自动生成代码，提高开发效率
-              {'\n\n'}
-              然而，随着AI技术的快速发展，也引发了一些担忧。专家们呼吁加强对AI的监管，确保其安全、可靠地发展。
-              {'\n\n'}
-              <Text style={styles.imageCaption}>
-                图：OpenAI实验室内部工作场景
-              </Text>
+              {news.content}
             </Text>
           </View>
 
@@ -238,25 +203,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: 16,
-    paddingTop: StatusBar.currentHeight,
-    borderBottomWidth: 1,
-    borderBottomColor: '#eee',
-  },
-  backButton: {
-    padding: 8,
-  },
-  headerActions: {
-    flexDirection: 'row',
-    gap: 16,
-  },
-  actionButton: {
-    padding: 8,
   },
   scrollContainer: {
     flex: 1,
@@ -399,6 +345,68 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginLeft: 8,
     fontWeight: '500',
+  },
+  breakingBadge: {
+    backgroundColor: '#ff4757',
+    borderRadius: 4,
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+    marginLeft: 8,
+  },
+  breakingText: {
+    color: '#fff',
+    fontSize: 12,
+    fontWeight: '500',
+  },
+  authorContainer: {
+    marginBottom: 12,
+  },
+  authorText: {
+    fontSize: 14,
+    color: '#666',
+  },
+  categoryContainer: {
+    flexDirection: 'row',
+    marginBottom: 12,
+  },
+  categoryText: {
+    fontSize: 14,
+    color: '#666',
+  },
+  tagsContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    marginBottom: 16,
+  },
+  tag: {
+    backgroundColor: '#f1f2f6',
+    borderRadius: 12,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    marginRight: 8,
+    marginBottom: 8,
+  },
+  tagText: {
+    fontSize: 12,
+    color: '#666',
+  },
+  statsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginBottom: 16,
+    paddingVertical: 8,
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
+    borderColor: '#eee',
+  },
+  statItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  statText: {
+    fontSize: 14,
+    color: '#666',
+    marginLeft: 4,
   },
 });
 

@@ -8,13 +8,24 @@ import { RootStackParamList } from '../types';
 
 type NewsItem = {
   id: string;
-  type?: 'large' | 'small' | 'text' | 'multi';
   title: string;
+  content: string;
   summary: string;
-  imageUrl?: string;
-  imageUrls?: string[];
-  timestamp: string;
   source: string;
+  author: string;
+  publishDate: string;
+  category: string;
+  subCategory: string;
+  tags: string[];
+  images: {
+    url: string;
+    caption?: string;
+  }[];
+  viewCount: number;
+  likeCount: number;
+  commentCount: number;
+  isFeatured: boolean;
+  isBreaking: boolean;
 };
 
 type NewsItemProps = {
@@ -29,13 +40,15 @@ type HomeScreenProps = {
 
 const LargeNewsItem = ({ item, onPress }: NewsItemProps) => (
   <TouchableOpacity style={styles.newsItem} onPress={onPress}>
-    <Image source={{ uri: item.imageUrl }} style={styles.largeImage} />
+    {item.images.length > 0 && item.images[0].url && (
+      <Image source={{ uri: item.images[0].url }} style={styles.largeImage} />
+    )}
     <View style={styles.newsContent}>
       <Text style={styles.newsTitle}>{item.title}</Text>
       <Text style={styles.newsSummary}>{item.summary}</Text>
       <View style={styles.newsMeta}>
         <Text style={styles.newsSource}>{item.source}</Text>
-        <Text style={styles.newsTimestamp}>{item.timestamp}</Text>
+        <Text style={styles.newsTimestamp}>{item.publishDate}</Text>
       </View>
     </View>
   </TouchableOpacity>
@@ -43,13 +56,15 @@ const LargeNewsItem = ({ item, onPress }: NewsItemProps) => (
 
 const SmallNewsItem = ({ item, onPress }: NewsItemProps) => (
   <TouchableOpacity style={[styles.newsItem, styles.smallItem]} onPress={onPress}>
-    <Image source={{ uri: item.imageUrl }} style={styles.smallImage} />
+    {item.images.length > 0 && item.images[0].url && (
+      <Image source={{ uri: item.images[0].url }} style={styles.smallImage} />
+    )}
     <View style={styles.smallContent}>
       <Text style={styles.newsTitle}>{item.title}</Text>
       <Text style={styles.newsSummary}>{item.summary}</Text>
       <View style={styles.newsMeta}>
         <Text style={styles.newsSource}>{item.source}</Text>
-        <Text style={styles.newsTimestamp}>{item.timestamp}</Text>
+        <Text style={styles.newsTimestamp}>{item.publishDate}</Text>
       </View>
     </View>
   </TouchableOpacity>
@@ -62,7 +77,7 @@ const TextNewsItem = ({ item, onPress }: NewsItemProps) => (
       <Text style={styles.newsSummary}>{item.summary}</Text>
       <View style={styles.newsMeta}>
         <Text style={styles.newsSource}>{item.source}</Text>
-        <Text style={styles.newsTimestamp}>{item.timestamp}</Text>
+        <Text style={styles.newsTimestamp}>{item.publishDate}</Text>
       </View>
     </View>
   </TouchableOpacity>
@@ -71,8 +86,8 @@ const TextNewsItem = ({ item, onPress }: NewsItemProps) => (
 const MultiImageNewsItem = ({ item, onPress }: NewsItemProps) => (
   <TouchableOpacity style={styles.newsItem} onPress={onPress}>
     <View style={styles.multiImageContainer}>
-      {item.imageUrls?.map((uri, index) => (
-        <Image key={index} source={{ uri }} style={styles.multiImage} />
+      {item.images.slice(0, 3).map((image, index) => (
+        image.url && <Image key={index} source={{ uri: image.url }} style={styles.multiImage} />
       ))}
     </View>
     <View style={styles.newsContent}>
@@ -80,25 +95,23 @@ const MultiImageNewsItem = ({ item, onPress }: NewsItemProps) => (
       <Text style={styles.newsSummary}>{item.summary}</Text>
       <View style={styles.newsMeta}>
         <Text style={styles.newsSource}>{item.source}</Text>
-        <Text style={styles.newsTimestamp}>{item.timestamp}</Text>
+        <Text style={styles.newsTimestamp}>{item.publishDate}</Text>
       </View>
     </View>
   </TouchableOpacity>
 );
 
 const NewsItem = ({ item, onPress }: NewsItemProps) => {
-  switch (item.type) {
-    case 'large':
-      return <LargeNewsItem item={item} onPress={onPress} />;
-    case 'small':
-      return <SmallNewsItem item={item} onPress={onPress} />;
-    case 'text':
-      return <TextNewsItem item={item} onPress={onPress} />;
-    case 'multi':
-      return <MultiImageNewsItem item={item} onPress={onPress} />;
-    default:
-      return <LargeNewsItem item={item} onPress={onPress} />;
+  if (item.isFeatured) {
+    return <LargeNewsItem item={item} onPress={onPress} />;
   }
+  if (item.images.length > 1) {
+    return <MultiImageNewsItem item={item} onPress={onPress} />;
+  }
+  if (item.images.length === 1) {
+    return <SmallNewsItem item={item} onPress={onPress} />;
+  }
+  return <TextNewsItem item={item} onPress={onPress} />;
 };
 
 const HomeScreen = ({ navigation }: HomeScreenProps) => {
@@ -109,7 +122,7 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
   // 加载新闻数据
   const loadNewsData = () => {
     try {
-      const data = require('../data/newsData.json');
+      const { data } = require('../data/newsData.json');
       setNewsData(data);
     } catch (error) {
       console.error('Failed to load news data:', error);
@@ -139,10 +152,19 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
               news: {
                 id: item.id,
                 title: item.title,
-                imageUrl: item.imageUrl || '',
+                imageUrl: item.images.length > 0 ? item.images[0].url : '',
                 source: item.source,
-                timestamp: item.timestamp,
-                summary: item.summary
+                timestamp: item.publishDate,
+                summary: item.summary,
+                content: item.content,
+                author: item.author,
+                category: item.category,
+                tags: item.tags,
+                viewCount: item.viewCount,
+                likeCount: item.likeCount,
+                commentCount: item.commentCount,
+                isFeatured: item.isFeatured,
+                isBreaking: item.isBreaking
               }
             })}
           />

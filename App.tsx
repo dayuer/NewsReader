@@ -52,6 +52,7 @@ const AuthStack = () => (
 const MainTabs = () => (
   <Tab.Navigator
     screenOptions={({ route }) => ({
+      headerShown: false,
       tabBarIcon: ({ focused, color, size }) => {
         let iconName: keyof typeof Ionicons.glyphMap = 'home';
 
@@ -70,12 +71,12 @@ const MainTabs = () => (
     <Tab.Screen
       name="HomeTab"
       component={HomeStack}
-      options={{ title: '首页' }}
+      options={{title:'首页' ,headerShown:false }}
     />
     <Tab.Screen
       name="ProfileTab"
       component={ProfileStack}
-      options={{ title: '我的' }}
+      options={{ title: '我的',headerShown:false }}
     />
   </Tab.Navigator>
 );

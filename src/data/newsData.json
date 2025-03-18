@@ -1,197 +1,449 @@
-[
-  {
-    "id": "1",
-    "type": "large",
-    "title": "Breaking News: 哈哈哈哈哈点点滴滴",
-    "summary": "A significant event has occurred that will impact many people...",
-    "imageUrl": "https://picsum.photos/600/400",
-    "timestamp": "2小时前",
-    "source": "新华网"
-  },
-  {
-    "id": "2",
-    "type": "small",
-    "title": " Global Economy Update",
-    "summary": "New breakthroughs in AI technology are changing the world...",
-    "imageUrl": "https://picsum.photos/200/200",
-    "timestamp": "5小时前",
-    "source": "科技日报"
-  },
-  {
-    "id": "3",
-    "type": "text",
-    "title": "拥抱AI，最需要突破的是认知",
-    "summary": "The global economy shows signs of recovery after recent challenges...",
-    "timestamp": "1天前",
-    "source": "经济观察报"
-  },
-  {
-    "id": "4",
-    "type": "multi",
-    "title": "Art Exhibition Opens in Shanghai",
-    "summary": "A major art exhibition featuring works from around the world has opened...",
-    "imageUrls": [
-      "https://picsum.photos/300/200",
-      "https://picsum.photos/300/200",
-      "https://picsum.photos/300/200"
-    ],
-    "timestamp": "3小时前",
-    "source": "艺术中国"
-  },
-  {
-    "id": "5",
-    "type": "large",
-    "title": "New Climate Change Report Released",
-    "summary": "Scientists warn of dire consequences if global warming continues at current rate...",
-    "imageUrl": "https://picsum.photos/600/400",
-    "timestamp": "1小时前",
-    "source": "环境日报"
-  },
-  {
-    "id": "6",
-    "type": "small",
-    "title": "SpaceX Launches New Satellite",
-    "summary": "SpaceX successfully launched a new communication satellite into orbit...",
-    "imageUrl": "https://picsum.photos/200/200",
-    "timestamp": "4小时前",
-    "source": "科技前沿"
-  },
-  {
-    "id": "7",
-    "type": "text",
-    "title": "Stock Market Hits New High",
-    "summary": "The stock market reached record levels today, driven by tech sector gains...",
-    "timestamp": "6小时前",
-    "source": "财经周刊"
-  },
-  {
-    "id": "8",
-    "type": "multi",
-    "title": "New Movie Releases This Weekend",
-    "summary": "Check out the latest blockbuster movies hitting theaters this weekend...",
-    "imageUrls": [
-      "https://picsum.photos/300/200",
-      "https://picsum.photos/300/200",
-      "https://picsum.photos/300/200"
-    ],
-    "timestamp": "1天前",
-    "source": "娱乐在线"
-  },
-  {
-    "id": "9",
-    "type": "large",
-    "title": "Major Sports Event Concludes",
-    "summary": "The international sports competition ended with record-breaking performances...",
-    "imageUrl": "https://picsum.photos/600/400",
-    "timestamp": "2天前",
-    "source": "体育世界"
-  },
-  {
-    "id": "10",
-    "type": "small",
-    "title": "New Smartphone Released",
-    "summary": "The latest smartphone features cutting-edge technology and improved camera...",
-    "imageUrl": "https://picsum.photos/200/200",
-    "timestamp": "3小时前",
-    "source": "科技快讯"
-  },
-  {
-    "id": "11",
-    "type": "text",
-    "title": "Global Health Summit Concludes",
-    "summary": "World leaders discuss strategies to improve global health and prevent future pandemics...",
-    "timestamp": "1天前",
-    "source": "健康时报"
-  },
-  {
-    "id": "12",
-    "type": "multi",
-    "title": "New Art Installation in City Center",
-    "summary": "A stunning new art installation has been unveiled in the heart of the city...",
-    "imageUrls": [
-      "https://picsum.photos/300/200",
-      "https://picsum.photos/300/200",
-      "https://picsum.photos/300/200"
-    ],
-    "timestamp": "4小时前",
-    "source": "城市文化"
-  },
-  {
-    "id": "13",
-    "type": "large",
-    "title": "Major Infrastructure Project Announced",
-    "summary": "The government has announced a new infrastructure project to improve transportation...",
-    "imageUrl": "https://picsum.photos/600/400",
-    "timestamp": "1天前",
-    "source": "建设日报"
-  },
-  {
-    "id": "14",
-    "type": "small",
-    "title": "New Study on Climate Change",
-    "summary": "Researchers have published a new study on the effects of climate change on coastal cities...",
-    "imageUrl": "https://picsum.photos/200/200",
-    "timestamp": "5小时前",
-    "source": "环境研究"
-  },
-  {
-    "id": "15",
-    "type": "text",
-    "title": "Global Trade Agreement Signed",
-    "summary": "Countries have signed a new trade agreement to boost economic growth...",
-    "timestamp": "2天前",
-    "source": "国际贸易"
-  },
-  {
-    "id": "16",
-    "type": "multi",
-    "title": "New Fashion Trends for Spring",
-    "summary": "Discover the latest fashion trends for the upcoming spring season...",
-    "imageUrls": [
-      "https://picsum.photos/300/200",
-      "https://picsum.photos/300/200",
-      "https://picsum.photos/300/200"
-    ],
-    "timestamp": "1天前",
-    "source": "时尚周刊"
-  },
-  {
-    "id": "17",
-    "type": "large",
-    "title": "New Theme Park Opens",
-    "summary": "A new theme park featuring cutting-edge attractions has opened its doors...",
-    "imageUrl": "https://picsum.photos/600/400",
-    "timestamp": "3小时前",
-    "source": "旅游天地"
-  },
-  {
-    "id": "18",
-    "type": "small",
-    "title": "Breakthrough in Medical Research",
-    "summary": "Scientists have made a significant breakthrough in cancer treatment research...",
-    "imageUrl": "https://picsum.photos/200/200",
-    "timestamp": "6小时前",
-    "source": "医学前沿"
-  },
-  {
-    "id": "19",
-    "type": "text",
-    "title": "New Education Policy Announced",
-    "summary": "The government has announced a new policy to improve the education system...",
-    "timestamp": "1天前",
-    "source": "教育时报"
-  },
-  {
-    "id": "20",
-    "type": "multi",
-    "title": "New Restaurant Opens in Downtown",
-    "summary": "A highly anticipated new restaurant has opened in the city center...",
-    "imageUrls": [
-      "https://picsum.photos/300/200",
-      "https://picsum.photos/300/200",
-      "https://picsum.photos/300/200"
-    ],
-    "timestamp": "2小时前",
-    "source": "美食天地"
+{
+  "data": [
+    {
+      "id": "12345",
+      "title": "重大科技突破",
+      "content": "详细新闻内容...",
+      "summary": "科学家们取得了重大突破...",
+      "source": "科技日报",
+      "author": "张三",
+      "publishDate": "2025-03-18T08:00:00Z",
+      "category": "科技",
+      "subCategory": "人工智能",
+      "tags": ["AI", "科技"],
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+          "caption": "相关图片说明"
+        }
+      ],
+      "viewCount": 1234,
+      "likeCount": 56,
+      "commentCount": 12,
+      "isFeatured": true,
+      "isBreaking": false
+    },
+    {
+      "id": "23456",
+      "title": "国际形势新变化",
+      "content": "国际关系最新动态...",
+      "summary": "多国领导人会晤达成重要共识...",
+      "source": "环球时报",
+      "author": "李四",
+      "publishDate": "2025-03-17T10:00:00Z",
+      "category": "国际",
+      "subCategory": "外交",
+      "tags": ["国际关系", "外交"],
+      "images": [],
+      "viewCount": 987,
+      "likeCount": 34,
+      "commentCount": 8,
+      "isFeatured": false,
+      "isBreaking": true
+    },
+    {
+      "id": "34567",
+      "title": "金融市场波动",
+      "content": "全球金融市场最新动态...",
+      "summary": "主要股指出现大幅波动...",
+      "source": "财经周刊",
+      "author": "王五",
+      "publishDate": "2025-03-16T15:00:00Z",
+      "category": "财经",
+      "subCategory": "股市",
+      "tags": ["股市", "金融"],
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+          "caption": "股市走势图"
+        }
+      ],
+      "viewCount": 1567,
+      "likeCount": 78,
+      "commentCount": 23,
+      "isFeatured": true,
+      "isBreaking": false
+    },
+    {
+      "id": "45678",
+      "title": "体育赛事精彩瞬间",
+      "content": "最新体育赛事报道...",
+      "summary": "精彩比赛回顾...",
+      "source": "体育快报",
+      "author": "赵六",
+      "publishDate": "2025-03-15T20:00:00Z",
+      "category": "体育",
+      "subCategory": "足球",
+      "tags": ["足球", "体育"],
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1551958219-acbc608c9097?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+          "caption": "比赛精彩瞬间"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+          "caption": "球员庆祝"
+        }
+      ],
+      "viewCount": 2345,
+      "likeCount": 123,
+      "commentCount": 45,
+      "isFeatured": false,
+      "isBreaking": false
+    },
+    {
+      "id": "56789",
+      "title": "文化艺术新展",
+      "content": "最新艺术展览信息...",
+      "summary": "知名艺术家作品展...",
+      "source": "文化周刊",
+      "author": "孙七",
+      "publishDate": "2025-03-14T12:00:00Z",
+      "category": "文化",
+      "subCategory": "艺术",
+      "tags": ["艺术", "展览"],
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+          "caption": "展览现场"
+        }
+      ],
+      "viewCount": 789,
+      "likeCount": 56,
+      "commentCount": 12,
+      "isFeatured": true,
+      "isBreaking": false
+    },
+    {
+      "id": "67890",
+      "title": "健康生活新发现",
+      "content": "健康生活最新研究...",
+      "summary": "科学家发现新的健康生活方式...",
+      "source": "健康时报",
+      "author": "周八",
+      "publishDate": "2025-03-13T09:00:00Z",
+      "category": "健康",
+      "subCategory": "生活方式",
+      "tags": ["健康", "生活方式"],
+      "images": [],
+      "viewCount": 3456,
+      "likeCount": 234,
+      "commentCount": 67,
+      "isFeatured": false,
+      "isBreaking": true
+    },
+    {
+      "id": "78901",
+      "title": "教育改革新政策",
+      "content": "最新教育政策解读...",
+      "summary": "教育部发布新政策...",
+      "source": "教育报",
+      "author": "吴九",
+      "publishDate": "2025-03-12T14:00:00Z",
+      "category": "教育",
+      "subCategory": "政策",
+      "tags": ["教育", "政策"],
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80",
+          "caption": "教育会议现场"
+        }
+      ],
+      "viewCount": 1234,
+      "likeCount": 78,
+      "commentCount": 23,
+      "isFeatured": true,
+      "isBreaking": false
+    },
+    {
+      "id": "89012",
+      "title": "科技创新新成果",
+      "content": "最新科技创新成果...",
+      "summary": "科学家取得重大突破...",
+      "source": "科技日报",
+      "author": "郑十",
+      "publishDate": "2025-03-11T11:00:00Z",
+      "category": "科技",
+      "subCategory": "创新",
+      "tags": ["科技", "创新"],
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+          "caption": "科技产品展示"
+        }
+      ],
+      "viewCount": 2345,
+      "likeCount": 123,
+      "commentCount": 45,
+      "isFeatured": false,
+      "isBreaking": false
+    },
+    {
+      "id": "90123",
+      "title": "环境保护新举措",
+      "content": "最新环境保护措施...",
+      "summary": "政府出台新环保政策...",
+      "source": "环境报",
+      "author": "王十一",
+      "publishDate": "2025-03-10T10:00:00Z",
+      "category": "环境",
+      "subCategory": "政策",
+      "tags": ["环境", "政策"],
+      "images": [],
+      "viewCount": 789,
+      "likeCount": 56,
+      "commentCount": 12,
+      "isFeatured": true,
+      "isBreaking": false
+    },
+    {
+      "id": "01234",
+      "title": "旅游新热点",
+      "content": "最新旅游热点推荐...",
+      "summary": "新旅游景点开放...",
+      "source": "旅游周刊",
+      "author": "李十二",
+      "publishDate": "2025-03-09T09:00:00Z",
+      "category": "旅游",
+      "subCategory": "景点",
+      "tags": ["旅游", "景点"],
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1503220317375-aaad61436b1b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+          "caption": "旅游景点"
+        }
+      ],
+      "viewCount": 3456,
+      "likeCount": 234,
+      "commentCount": 67,
+      "isFeatured": false,
+      "isBreaking": true
+    },
+    {
+      "id": "11234",
+      "title": "美食新发现",
+      "content": "最新美食推荐...",
+      "summary": "新餐厅开业...",
+      "source": "美食杂志",
+      "author": "张十三",
+      "publishDate": "2025-03-08T12:00:00Z",
+      "category": "美食",
+      "subCategory": "餐厅",
+      "tags": ["美食", "餐厅"],
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+          "caption": "美食展示"
+        }
+      ],
+      "viewCount": 1234,
+      "likeCount": 78,
+      "commentCount": 23,
+      "isFeatured": true,
+      "isBreaking": false
+    },
+    {
+      "id": "21234",
+      "title": "时尚新趋势",
+      "content": "最新时尚趋势...",
+      "summary": "新时尚潮流发布...",
+      "source": "时尚周刊",
+      "author": "刘十四",
+      "publishDate": "2025-03-07T14:00:00Z",
+      "category": "时尚",
+      "subCategory": "潮流",
+      "tags": ["时尚", "潮流"],
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+          "caption": "时尚秀场"
+        }
+      ],
+      "viewCount": 2345,
+      "likeCount": 123,
+      "commentCount": 45,
+      "isFeatured": false,
+      "isBreaking": false
+    },
+    {
+      "id": "31234",
+      "title": "汽车新车型",
+      "content": "最新汽车发布...",
+      "summary": "新车型亮相...",
+      "source": "汽车周刊",
+      "author": "陈十五",
+      "publishDate": "2025-03-06T11:00:00Z",
+      "category": "汽车",
+      "subCategory": "新车",
+      "tags": ["汽车", "新车"],
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1494905998402-395d579af36f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+          "caption": "新车展示"
+        }
+      ],
+      "viewCount": 789,
+      "likeCount": 56,
+      "commentCount": 12,
+      "isFeatured": true,
+      "isBreaking": false
+    },
+    {
+      "id": "41234",
+      "title": "电影新片推荐",
+      "content": "最新电影推荐...",
+      "summary": "新片上映...",
+      "source": "电影周刊",
+      "author": "杨十六",
+      "publishDate": "2025-03-05T10:00:00Z",
+      "category": "电影",
+      "subCategory": "新片",
+      "tags": ["电影", "新片"],
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+          "caption": "电影海报"
+        }
+      ],
+      "viewCount": 3456,
+      "likeCount": 234,
+      "commentCount": 67,
+      "isFeatured": false,
+      "isBreaking": true
+    },
+    {
+      "id": "51234",
+      "title": "音乐新专辑",
+      "content": "最新音乐专辑发布...",
+      "summary": "新专辑发布...",
+      "source": "音乐周刊",
+      "author": "赵十七",
+      "publishDate": "2025-03-04T09:00:00Z",
+      "category": "音乐",
+      "subCategory": "专辑",
+      "tags": ["音乐", "专辑"],
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+          "caption": "专辑封面"
+        }
+      ],
+      "viewCount": 1234,
+      "likeCount": 78,
+      "commentCount": 23,
+      "isFeatured": true,
+      "isBreaking": false
+    },
+    {
+      "id": "61234",
+      "title": "游戏新作发布",
+      "content": "最新游戏发布...",
+      "summary": "新游戏上线...",
+      "source": "游戏周刊",
+      "author": "钱十八",
+      "publishDate": "2025-03-03T12:00:00Z",
+      "category": "游戏",
+      "subCategory": "新作",
+      "tags": ["游戏", "新作"],
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1551103782-8ab07afd45c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+          "caption": "游戏画面"
+        }
+      ],
+      "viewCount": 2345,
+      "likeCount": 123,
+      "commentCount": 45,
+      "isFeatured": false,
+      "isBreaking": false
+    },
+    {
+      "id": "71234",
+      "title": "科技新发明",
+      "content": "最新科技发明...",
+      "summary": "新科技产品发布...",
+      "source": "科技日报",
+      "author": "孙十九",
+      "publishDate": "2025-03-02T14:00:00Z",
+      "category": "科技",
+      "subCategory": "发明",
+      "tags": ["科技", "发明"],
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+          "caption": "科技产品"
+        }
+      ],
+      "viewCount": 789,
+      "likeCount": 56,
+      "commentCount": 12,
+      "isFeatured": true,
+      "isBreaking": false
+    },
+    {
+      "id": "81234",
+      "title": "健康新发现",
+      "content": "最新健康发现...",
+      "summary": "新健康研究发布...",
+      "source": "健康时报",
+      "author": "周二十",
+      "publishDate": "2025-03-01T11:00:00Z",
+      "category": "健康",
+      "subCategory": "研究",
+      "tags": ["健康", "研究"],
+      "images": [],
+      "viewCount": 3456,
+      "likeCount": 234,
+      "commentCount": 67,
+      "isFeatured": false,
+      "isBreaking": true
+    },
+    {
+      "id": "91234",
+      "title": "教育新方法",
+      "content": "最新教育方法...",
+      "summary": "新教育方法发布...",
+      "source": "教育报",
+      "author": "吴二十一",
+      "publishDate": "2025-02-28T10:00:00Z",
+      "category": "教育",
+      "subCategory": "方法",
+      "tags": ["教育", "方法"],
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80",
+          "caption": "教育现场"
+        }
+      ],
+      "viewCount": 1234,
+      "likeCount": 78,
+      "commentCount": 23,
+      "isFeatured": true,
+      "isBreaking": false
+    },
+    {
+      "id": "02234",
+      "title": "环境新政策",
+      "content": "最新环境政策...",
+      "summary": "新环境政策发布...",
+      "source": "环境报",
+      "author": "郑二十二",
+      "publishDate": "2025-02-27T09:00:00Z",
+      "category": "环境",
+      "subCategory": "政策",
+      "tags": ["环境", "政策"],
+      "images": [],
+      "viewCount": 2345,
+      "likeCount": 123,
+      "commentCount": 45,
+      "isFeatured": false,
+      "isBreaking": false
+    }
+  ],
+  "pagination": {
+    "page": 1,
+    "size": 21,
+    "total": 21,
+    "totalPages": 1
   }
-]
+}
