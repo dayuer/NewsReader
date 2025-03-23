@@ -8,6 +8,7 @@ import { Ionicons } from '@expo/vector-icons';
 import './src/i18n';
 import HomeScreen from './src/screens/HomeScreen';
 import NewsDetailScreen from './src/screens/NewsDetailScreen';
+import NewsSourceScreen from './src/screens/NewsSourceScreen';
 import type { NewsDetailScreenRouteProp } from './src/types';
 import SettingsScreen from './src/screens/SettingsScreen';
 import ProfileScreen from './src/screens/ProfileScreen';
@@ -30,6 +31,11 @@ const HomeStack = () => (
           title: params?.news?.title || '新闻详情'
         };
       }}
+    />
+    <Stack.Screen
+      name="NewsSource"
+      component={NewsSourceScreen as React.ComponentType<any>}
+      options={{ title: '同源新闻' }}
     />
   </Stack.Navigator>
 );

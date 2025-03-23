@@ -23,6 +23,10 @@ export type RootStackParamList = {
       isBreaking: boolean;
     }
   };
+  NewsSource: {
+    source: string;
+    currentNewsId: string;
+  };
   Settings: undefined;
   ForgotPassword: undefined;
   Register: undefined;
@@ -46,13 +50,24 @@ export type NewsDetailScreenProps = {
 
 export type NewsItem = {
   id: string;
-  type: 'large' | 'small' | 'text' | 'multi';
   title: string;
+  content: string;
   summary: string;
-  imageUrl?: string;
-  imageUrls?: string[];
-  timestamp: string;
   source: string;
+  author: string;
+  publishDate: string;
+  category: string;
+  subCategory: string;
+  tags: string[];
+  images: {
+    url: string;
+    caption?: string;
+  }[];
+  viewCount: number;
+  likeCount: number;
+  commentCount: number;
+  isFeatured: boolean;
+  isBreaking: boolean;
 };
 
 export type ProfileScreenProps = {
