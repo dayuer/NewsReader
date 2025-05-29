@@ -1,15 +1,10 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
-import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
 import { MaterialIcons } from '@expo/vector-icons';
 import { NewsItem } from '../types';
 import { StyleProp, ViewStyle } from 'react-native';
-
-const { height: screenHeight } = Dimensions.get('window');
-const bottomNavHeight = 60;
-const insets = useSafeAreaInsets();
-const availableHeight = screenHeight - insets.top - insets.bottom - bottomNavHeight;
 
 interface NewsCardProps {
   item: NewsItem;
@@ -17,15 +12,17 @@ interface NewsCardProps {
   style?: StyleProp<ViewStyle>;
 }
 
-const NewsCard = React.forwardRef<View, NewsCardProps>(({ item, onPress, style }, ref) => {
+const NewsCard = React.memo(React.forwardRef<View, NewsCardProps>(({ item, onPress, style }, ref) => {
   return (
     <SafeAreaView style={styles.wrapper}>
       <View style={styles.container}>
         <TouchableOpacity style={style} onPress={onPress} ref={ref}>
           {/* 上部：新闻标题和图片 */}
           <View style={styles.header}>
-            {item.images.length > 0 && (
+            {item.images.length > 0 && item.images[0].url ? (
               <Image source={{ uri: item.images[0].url }} style={styles.image} />
+            ) : (
+              <View style={[styles.image, { backgroundColor: '#e0e0e0' }]} />
             )}
             <LinearGradient
               colors={['rgba(0,0,0,0)', 'rgba(0,0,0,0.8)']}
@@ -64,22 +61,20 @@ const NewsCard = React.forwardRef<View, NewsCardProps>(({ item, onPress, style }
       </View>
     </SafeAreaView>
   );
-});
+}));
 
 const styles = StyleSheet.create({
   wrapper: {
-    marginTop: 0,
-    height: screenHeight,
-    paddingBottom: bottomNavHeight,
+    flex: 1,
   },
   container: {
+    flex: 1,
     backgroundColor: '#fff',
     overflow: 'scroll',
     elevation: 3,
-    height: availableHeight,
   },
   header: {
-    height: availableHeight * 0.6,
+    flex: 0.333, // 屏幕高度的1/3
     justifyContent: 'flex-end',
   },
   image: {
@@ -97,8 +92,9 @@ const styles = StyleSheet.create({
     fontFamily: 'serif',
   },
   content: {
+    flex: 0.667, // 剩余空间的2/3
     padding: 16,
-    height: availableHeight * 0.2,
+    paddingBottom: 80, // 为底部区域留出空间
   },
   summary: {
     fontSize: 16,
@@ -122,10 +118,14 @@ const styles = StyleSheet.create({
     color: '#666',
   },
   footer: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
     borderTopWidth: 1,
     borderTopColor: '#eee',
     padding: 16,
-    height: availableHeight * 0.1,
+    backgroundColor: '#fff',
   },
   actions: {
     flexDirection: 'row',

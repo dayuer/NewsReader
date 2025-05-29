@@ -1,4 +1,3 @@
-r
 import 'react-native-gesture-handler';
 import './src/styles/global.css';
 import { StatusBar } from 'expo-status-bar';
@@ -8,6 +7,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import './src/i18n';
+import { NewsProvider } from './src/contexts/NewsContext';
 import HomeScreen from './src/screens/HomeScreen';
 import NewsDetailScreen from './src/screens/NewsDetailScreen';
 import NewsSourceScreen from './src/screens/NewsSourceScreen';
@@ -92,13 +92,15 @@ const MainTabs = () => (
 export default function App() {
   return (
     <SafeAreaProvider>
-      <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Main" component={MainTabs} />
-        <Stack.Screen name="Auth" component={AuthStack} />
-      </Stack.Navigator>
-      <StatusBar style="auto" />
-      </NavigationContainer>
+      <NewsProvider>
+        <NavigationContainer>
+          <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="Main" component={MainTabs} />
+            <Stack.Screen name="Auth" component={AuthStack} />
+          </Stack.Navigator>
+          <StatusBar style="auto" />
+        </NavigationContainer>
+      </NewsProvider>
     </SafeAreaProvider>
   );
 }
